@@ -1,9 +1,12 @@
 import React from "react";
 
-const Consumer = ({consumer}) => {
+const Consumer = ({ name, email }) => {
   return (
     <ul>
-      <li></li>
+      <li>
+        {name}
+        {email}
+      </li>
     </ul>
   );
 };

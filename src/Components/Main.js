@@ -6,15 +6,18 @@ const url = "/building-location.json";
 
 const Main = () => {
   const [loading, setLoading] = useState(true);
-  const [consumers, setConsumers] = useState([]);
+  const [info, setInfo] = useState([]);
+  console.log(info);
 
   const getData = async () => {
     try {
       const response = await fetch(url);
       const data = await response.json();
       setLoading(false);
-      setConsumers(data.locations);
-      console.log(data.locations);
+      // setInfo(data.locations[1].consumers);
+      data.locations.map((location) => setInfo(location.consumers));
+
+      // console.log(data.locations[1].consumers);
     } catch (error) {
       setLoading(false);
       console.log(error);
@@ -35,7 +38,7 @@ const Main = () => {
 
   return (
     <main>
-      <Consumers consumers={consumers} />
+      <Consumers info={info} />
     </main>
   );
 };
