@@ -5,7 +5,7 @@ import "./App.css";
 
 function App() {
   return (
-    <div className="header">
+    <div id="app">
       <Header />
       <Main />
       <Footer />

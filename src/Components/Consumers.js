@@ -5,10 +5,7 @@ const Consumers = ({ info }) => {
   return (
     <div>
       <section>
-        <div>
-          <h2>Consumers</h2>
-        </div>
-        <div>
+        <div className="consumerList">
           {info.map((item, index) => (
             <Consumer key={index} item={item} />
           ))}

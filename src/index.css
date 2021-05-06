@@ -1,13 +1,71 @@
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  background: #f1f5f8;
+  color: #222;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#app {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas:
+    "header"
+    "main"
+    "footer";
+}
+#app > header {
+  grid-area: header;
+  background-color: #041549;
+  position: sticky;
+  top: 0;
+  text-align: center;
+}
+
+#app > main {
+  grid-area: main;
+}
+
+#app > footer {
+  grid-area: footer;
+  text-align: center;
+}
+
+h1 {
+  color: #fff;
+}
+
+h2 {
+  color: #041549;
+}
+.consumerList {
+  width: 90vw;
+  max-width: 1170px;
+  margin: 3rem auto;
+  display: grid;
+  gap: 2rem;
+}
+
+@media screen and (min-width: 768px) {
+  .consumerList {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.consumer {
+  background: #fff;
+  border-radius: 1rem;
+  padding: 1rem 2rem;
 }

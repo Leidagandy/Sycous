@@ -1,14 +1,11 @@
-import React from "react"
+import React from "react";
 
 const Header = () => {
-
   return (
-
-    <header>
-      <h1>Interview Task for React / Typescript Role</h1>
+    <header id="header">
+      <h1>Consumers</h1>
     </header>
+  );
+};
 
-  )
-}
-
-export default Header
+export default Header;

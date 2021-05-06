@@ -2,14 +2,14 @@ import React from "react";
 
 const Consumer = ({ item }) => {
   return (
-    <ul>
-      <li>
-        {item.name}
-        {item.email}
-        {item.occupationDate}
-        {item.phoneNumber}
-      </li>
-    </ul>
+    <article className="consumer">
+      <h2>{item.name}</h2>
+      <div>
+        <p className="info">Email: {item.email}</p>
+        <p className="info">Occupation Date: {item.occupationDate}</p>
+        <p className="info">Phone Number: {item.phoneNumber}</p>
+      </div>
+    </article>
   );
 };
 
