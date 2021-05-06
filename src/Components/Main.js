@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from "react";
 import Loading from "./Loading";
 import Consumers from "./Consumers";
+import MobilePhone from "./MobilePhone";
+import LoadMore from "./LoadMore";
 
 const url = "/building-location.json";
 
 const Main = () => {
   const [loading, setLoading] = useState(true);
   const [info, setInfo] = useState([]);
-  console.log(info);
+
+  // console.log(info);
 
   const getData = async () => {
     try {
@@ -41,15 +44,28 @@ const Main = () => {
     );
   }
 
-  const handlePhoneFilter = () => {
-    const filterdData = info.filter((row) => row.isPhoneMobile);
-    setInfo(filterdData);
+  const FilterMobilePhone = async (e) => {
+    const response = await fetch(url);
+    const data = await response.json();
+    let consumers = [];
+    data.locations.forEach((location) => {
+      location.consumers.forEach((consumer) => {
+        consumers.push(consumer);
+      });
+    });
+    let flag = e.target.value === "true" ? true : false;
+
+    let filteredData = consumers.filter((ele) => {
+      return ele.isPhoneMobile === flag;
+    });
+    setInfo([...filteredData]);
   };
 
   return (
     <main>
-      <button onClick={handlePhoneFilter}>Phone Filter </button>
+      <MobilePhone FilterMobilePhone={FilterMobilePhone} info={info} />
       <Consumers info={info} />
+      <LoadMore />
     </main>
   );
 };
