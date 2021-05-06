@@ -1,9 +1,11 @@
 import React from "react";
 
-const LoadMore = () => {
+const LoadMore = ({ _LoadMore }) => {
   return (
-    <div>
-      <button>Load more</button>
+    <div className="load">
+      <button className="loadMore" onClick={_LoadMore}>
+        Load more
+      </button>
     </div>
   );
 };
