@@ -2,8 +2,6 @@ import React from "react";
 import Consumer from "./Consumer";
 
 const Consumers = ({ info }) => {
-  console.log(info);
-  info.map((item) => console.log(item.name));
   return (
     <div>
       <section>
@@ -11,12 +9,9 @@ const Consumers = ({ info }) => {
           <h2>Consumers</h2>
         </div>
         <div>
-          (return{" "}
-          {info.map((item) => (
-            <Consumer name={item.name} />
-      
+          {info.map((item, index) => (
+            <Consumer key={index} item={item} />
           ))}
-          )
         </div>
       </section>
     </div>

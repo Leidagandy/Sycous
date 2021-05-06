@@ -1,11 +1,13 @@
 import React from "react";
 
-const Consumer = ({ name, email }) => {
+const Consumer = ({ item }) => {
   return (
     <ul>
       <li>
-        {name}
-        {email}
+        {item.name}
+        {item.email}
+        {item.occupationDate}
+        {item.phoneNumber}
       </li>
     </ul>
   );

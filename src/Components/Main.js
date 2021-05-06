@@ -14,10 +14,15 @@ const Main = () => {
       const response = await fetch(url);
       const data = await response.json();
       setLoading(false);
-      // setInfo(data.locations[1].consumers);
-      data.locations.map((location) => setInfo(location.consumers));
+      console.log("data----", data);
 
-      // console.log(data.locations[1].consumers);
+      let consumers = [];
+      data.locations.forEach((location) => {
+        location.consumers.forEach((consumer) => {
+          consumers.push(consumer);
+        });
+      });
+      setInfo(consumers);
     } catch (error) {
       setLoading(false);
       console.log(error);
@@ -36,8 +41,14 @@ const Main = () => {
     );
   }
 
+  const handlePhoneFilter = () => {
+    const filterdData = info.filter((row) => row.isPhoneMobile);
+    setInfo(filterdData);
+  };
+
   return (
     <main>
+      <button onClick={handlePhoneFilter}>Phone Filter </button>
       <Consumers info={info} />
     </main>
   );
